@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>K&B Earth Works SARL</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --brown:#8B5A38;
+  --teal:#4A8A90;
+  --teal-light:#7BB8BE;
+  --slate:#2C4A52;
+  --dark:#1a3038;
+  --cream:#F5F2EE;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333}
+[dir="rtl"]{font-family:Tahoma,'Segoe UI',Arial,sans-serif}
+
+/* ══ WHATSAPP BOUTON ══ */
+.wa-float{
+  position:fixed;bottom:28px;left:28px;z-index:99999;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.5);
+  animation:wapulse 2s infinite;
+  transition:.25s;
+}
+.wa-float:hover{background:#1ebe5d;transform:scale(1.1)}
+.wa-float i{font-size:2rem;color:#fff}
+@keyframes wapulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}
+  50%{box-shadow:0 4px 36px rgba(37,211,102,.8)}
+}
+
+/* ══ TOPBAR ══ */
+.topbar{background:var(--dark);display:flex;justify-content:space-between;align-items:center;padding:8px 28px}
+.topbar-left{color:rgba(255,255,255,.5);font-size:.75rem;display:flex;align-items:center;gap:6px}
+.topbar-left i{color:var(--teal-light)}
+.lang-switcher{display:flex;gap:6px}
+.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:5px 12px;border-radius:30px;cursor:pointer;font-size:.75rem;font-weight:600;transition:.2s}
+.lang-btn img{width:20px;height:14px;border-radius:3px;object-fit:cover}
+.lang-btn:hover,.lang-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+
+/* ══ HERO avec fond montagne ══ */
+.hero{
+  background:
+    linear-gradient(160deg,rgba(248,244,240,.88) 0%,rgba(238,247,248,.85) 55%,rgba(240,248,240,.88) 100%),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&auto=format&fit=crop&q=80') center/cover no-repeat;
+  padding:64px 20px 54px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #dceef0;
+}
+.logo-wrap{display:inline-block;margin-bottom:22px}
+.logo-wrap img{width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 10px 28px rgba(44,74,82,.2));transition:transform .35s}
+.logo-wrap img:hover{transform:scale(1.05)}
+.hero h1{font-size:2.6rem;font-weight:900;letter-spacing:6px;color:var(--slate);margin-bottom:5px}
+.hero .sub{font-size:.78rem;letter-spacing:5px;color:var(--teal);margin-bottom:16px;text-transform:uppercase}
+.hero .sep{width:70px;height:3px;margin:0 auto 18px;border-radius:3px;background:linear-gradient(90deg,var(--brown),var(--teal))}
+.hero .tagline{font-size:1rem;color:#555;margin-bottom:4px}
+.hero .loc{color:var(--brown);font-style:italic;font-size:.88rem;margin-bottom:30px}
+.hero-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-p{background:linear-gradient(135deg,var(--slate),var(--teal));color:#fff;border:none;padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;box-shadow:0 6px 18px rgba(44,74,82,.28);transition:.25s;display:flex;align-items:center;gap:8px}
+.btn-p:hover{transform:translateY(-3px)}
+.btn-o{border:2px solid var(--slate);background:transparent;color:var(--slate);padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;transition:.25s;display:flex;align-items:center;gap:8px}
+.btn-o:hover{background:var(--slate);color:#fff}
+
+/* ══ BARRE ══ */
+.bar{background:var(--slate);display:flex;flex-wrap:wrap;justify-content:center}
+.bar a{color:rgba(255,255,255,.85);font-size:.8rem;padding:14px 22px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;display:flex;align-items:center;gap:10px;transition:.25s}
+[dir="rtl"] .bar a{border-right:none;border-left:1px solid rgba(255,255,255,.08)}
+.bar a:last-child{border:none}
+.bar a:hover{background:rgba(255,255,255,.08)}
+.bar a:hover .bar-ico{background:var(--brown);transform:rotate(10deg) scale(1.1)}
+.bar-ico{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;transition:.3s;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.22)}
+.bar-ico i{color:#fff;font-size:.9rem}
+
+/* ══ ABOUT ══ */
+.about{background:var(--cream);padding:70px 20px;text-align:center}
+.sec-h{font-size:1.75rem;font-weight:700;color:var(--slate);margin-bottom:10px}
+.sec-h::after{content:'';display:block;width:55px;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));margin:10px auto 28px;border-radius:3px}
+.about p{max-width:700px;margin:0 auto 14px;line-height:1.9;color:#444;font-size:.96rem}
+
+/* ══ SERVICES ══ */
+.srv{padding:70px 20px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:980px;margin:0 auto}
+.card{background:#fff;border:1px solid #deeef0;border-radius:16px;padding:28px 22px;transition:.28s;position:relative;overflow:hidden}
+.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));transform:scaleX(0);transition:.3s;transform-origin:left}
+.card:hover{box-shadow:0 10px 32px rgba(74,138,144,.15);transform:translateY(-5px)}
+.card:hover::after{transform:scaleX(1)}
+.ch{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ch-ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(44,74,82,.2)}
+.ch-ico i{color:#fff;font-size:1.1rem}
+.ch h3{color:var(--slate);font-size:.92rem;font-weight:700}
+.card ul{list-style:none}
+.card ul li{color:#666;font-size:.81rem;padding:4px 0 4px 16px;position:relative;line-height:1.55}
+[dir="rtl"] .card ul li{padding:4px 16px 4px 0}
+.card ul li::before{content:"›";color:var(--teal);position:absolute;left:0;font-weight:800}
+[dir="rtl"] .card ul li::before{left:auto;right:0;content:"‹"}
+
+/* ══ MINING ══ */
+.mining{background:linear-gradient(135deg,#e8f5f6,#f0f4f3);padding:56px 20px}
+.mi-box{max-width:840px;margin:0 auto;background:#fff;border-radius:18px;padding:36px 40px;box-shadow:0 6px 28px rgba(44,74,82,.09)}
+.mi-box h2{font-size:1.1rem;font-weight:700;color:var(--slate);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.mi-ico{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--brown),#c07840);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mi-ico i{color:#fff;font-size:.9rem}
+.mi-box ul{list-style:none;display:grid;gap:10px}
+.mi-box ul li{font-size:.86rem;color:var(--slate);padding:11px 16px 11px 44px;position:relative;line-height:1.6;background:#f6fbfc;border-radius:10px;border-left:3px solid var(--teal);transition:.2s}
+[dir="rtl"] .mi-box ul li{padding:11px 44px 11px 16px;border-left:none;border-right:3px solid var(--teal)}
+.mi-box ul li:hover{background:#eef7f8}
+.mi-box ul li i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--teal);font-size:.8rem}
+[dir="rtl"] .mi-box ul li i{left:auto;right:16px}
+
+/* ══ PROJETS ══ */
+.projects{padding:70px 20px;background:var(--cream)}
+.proj-empty{text-align:center;padding:48px 20px;color:#aaa}
+.proj-empty i{font-size:3rem;margin-bottom:14px;display:block;color:#d0e8ed}
+.proj-empty p{font-size:.95rem}
+
+/* ══ BOTTOM ══ */
+.bottom{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:640px){.bottom{grid-template-columns:1fr}}
+.app{background:var(--cream);padding:56px 48px}
+.app h2{font-size:1.2rem;font-weight:700;color:var(--slate);margin-bottom:26px}
+.app ul{list-style:none}
+.app ul li{display:flex;align-items:center;gap:14px;padding:13px 0;font-size:.93rem;color:#444;border-bottom:1px solid rgba(74,138,144,.1)}
+.ap-ico{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ap-ico i{color:#fff;font-size:.85rem}
+
+/* ══ CONTACT ══ */
+.cc{background:linear-gradient(160deg,var(--dark),var(--slate));padding:56px 44px;color:#fff}
+.cc-logo{width:140px;height:140px;object-fit:contain;display:block;margin-bottom:20px;filter:brightness(0) invert(1);opacity:.9}
+.cc h3{font-size:1.1rem;font-weight:800;letter-spacing:3px;margin-bottom:4px}
+.cc .cs{color:var(--teal-light);font-size:.74rem;letter-spacing:3px;margin-bottom:26px;text-transform:uppercase}
+.ci{display:flex;gap:12px;font-size:.83rem;color:rgba(255,255,255,.88);margin-bottom:14px;line-height:1.65;align-items:flex-start}
+.ci-ico{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ci-ico i{color:var(--teal-light);font-size:.85rem}
+.cc hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
+.ice{font-size:.74rem;color:rgba(255,255,255,.4);display:flex;align-items:center;gap:8px}
+.ice i{color:var(--teal-light)}
+
+/* ══ QR ══ */
+.qrs{background:#fff;padding:70px 20px;text-align:center}
+.qrbox{display:inline-flex;flex-direction:column;align-items:center;gap:18px;background:linear-gradient(135deg,#f8f4f0,#eef7f8);border-radius:24px;padding:38px 48px;box-shadow:0 8px 32px rgba(44,74,82,.1);border:1px solid #e0eef0}
+.qrbox img{border-radius:16px;border:9px solid #fff;box-shadow:0 4px 20px rgba(44,74,82,.15);width:260px;height:260px}
+.qr-link{font-size:.78rem;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:6px}
+.dlb{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.db{padding:13px 28px;color:#fff;border:none;border-radius:50px;font-weight:700;font-size:.87rem;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:8px}
+.db:hover{transform:translateY(-3px);opacity:.9}
+.db1{background:linear-gradient(135deg,var(--brown),#b07040)}
+
+footer{background:var(--dark);text-align:center;padding:20px;font-size:.74rem;color:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;gap:8px}
+footer span{color:var(--teal-light);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- ══ WHATSAPP ══ -->
+<a href="https://wa.me/212662136067" target="_blank" class="wa-float">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <div class="topbar-left"><i class="fa-solid fa-globe"></i><span id="t-topbar">Bureau d'études — Casablanca, Maroc</span></div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('fr',this)"><img src="https://flagcdn.com/w40/fr.png" alt="FR"/> FR</button>
+    <button class="lang-btn" onclick="setLang('en',this)"><img src="https://flagcdn.com/w40/gb.png" alt="EN"/> EN</button>
+    <button class="lang-btn" onclick="setLang('ar',this)"><img src="https://flagcdn.com/w40/ma.png" alt="AR"/> ع</button>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="logo-wrap">
+    <img src="assets/logos.png" alt="K&B Earth Works" onerror="this.style.opacity='.2'"/>
+  </div>
+  <h1>K&amp;B EARTH WORKS</h1>
+  <p class="sub">Geoscience &nbsp;·&nbsp; Water &nbsp;·&nbsp; Environment</p>
+  <div class="sep"></div>
+  <p class="tagline" id="t-tagline">Bureau d'études en géosciences, environnement et ingénierie</p>
+  <p class="loc">Casablanca - Maroc</p>
+  <div class="hero-btns">
+    <button class="btn-p" onclick="document.querySelector('.srv').scrollIntoView({behavior:'smooth'})">
+      <i class="fa-solid fa-compass"></i><span id="t-btn1">Découvrir nos services</span>
+    </button>
+    <button class="btn-o" onclick="document.querySelector('.cc').scrollIntoView({behavior:'smooth'})">
+      <i class="fa-solid fa-paper-plane"></i><span id="t-btn2">Nous contacter</span>
+    </button>
+  </div>
+</section>
+
+<!-- ══ BARRE ══ -->
+<div class="bar">
+  <a href="tel:+212662136067"><div class="bar-ico"><i class="fa-solid fa-phone"></i></div>+212 662 136 067</a>
+  <a href="tel:+212762985389"><div class="bar-ico"><i class="fa-solid fa-mobile-screen-button"></i></div>+212 762 985 389</a>
+  <a href="mailto:k.b.earthworks2026@gmail.com"><div class="bar-ico"><i class="fa-solid fa-envelope"></i></div>k.b.earthworks2026@gmail.com</a>
+  <a href="#"><div class="bar-ico"><i class="fa-solid fa-location-dot"></i></div>Maarif – Casablanca</a>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="about">
+  <h2 class="sec-h" id="t-about-h">À propos de K&amp;B Earth Works</h2>
+  <p id="t-about1"><strong>K&amp;B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.</p>
+  <p id="t-about2">Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.</p>
+  <p id="t-about3">Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.</p>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section class="srv">
+  <h2 class="sec-h" style="text-align:center" id="t-srv-h">Nos Services</h2>
+  <div class="grid">
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-earth-africa"></i></div><h3 id="t-s1">Géosciences &amp; Environnement</h3></div><ul id="t-ul1"><li>Géologie environnementale</li><li>Hydrogéologie</li><li>Géophysique appliquée</li><li>Géochimie</li><li>Études d'impact environnemental (EIE)</li></ul></div>
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-road"></i></div><h3 id="t-s2">Ingénierie VRD</h3></div><ul id="t-ul2"><li>Tracé et conception de routes</li><li>Dimensionnement des chaussées</li><li>Stabilité des talus</li><li>Analyse géotechnique</li></ul></div>
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-chart-pie"></i></div><h3 id="t-s3">Études de Faisabilité</h3></div><ul id="t-ul3"><li>Analyse de viabilité technique</li><li>Études économiques</li><li>Identification et scénarios</li><li>Évaluation de risques</li></ul></div>
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-mountain"></i></div><h3 id="t-s4">Exploration Minière</h3></div><ul id="t-ul4"><li>Cartographie géologique</li><li>Levés géophysiques</li><li>Permis de recherche</li><li>Gestion de carrières</li></ul></div>
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-droplet"></i></div><h3 id="t-s5">Ressources Hydrauliques</h3></div><ul id="t-ul5"><li>Études hydrogéologiques</li><li>Gestion durable des ressources en eau</li><li>Modélisation hydrogéologique</li></ul></div>
+    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-diagram-project"></i></div><h3 id="t-s6">Coordination de Projets</h3></div><ul id="t-ul6"><li>Pilotage de projets</li><li>Ordonnancement</li><li>Assistance technique &amp; environnement</li></ul></div>
+  </div>
+</section>
+
+<!-- ══ MINING ══ -->
+<section class="mining">
+  <div class="mi-box">
+    <h2><div class="mi-ico"><i class="fa-solid fa-helmet-safety"></i></div><span id="t-mine-h">Exploration géologique — Prestations détaillées</span></h2>
+    <ul id="t-mine-ul">
+      <li><i class="fa-solid fa-file-lines"></i> Analyse documentaire et compilation des données géologiques existantes</li>
+      <li><i class="fa-solid fa-map"></i> Cartographie géologique et structurale</li>
+      <li><i class="fa-solid fa-wave-square"></i> Levés géophysiques et géochimiques</li>
+      <li><i class="fa-solid fa-person-hiking"></i> Travaux de reconnaissance de terrain</li>
+      <li><i class="fa-solid fa-magnifying-glass-chart"></i> Interprétation des données et identification des zones à potentiel minier</li>
+      <li><i class="fa-solid fa-folder-open"></i> Constitution et suivi des dossiers de permis de recherche</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ PROJETS ══ -->
+<section class="projects">
+  <h2 class="sec-h" style="text-align:center" id="t-proj-h">Nos Projets</h2>
+  <div class="proj-empty">
+    <i class="fa-solid fa-folder-open"></i>
+    <p id="t-proj-empty">Projets en cours de publication — revenez bientôt !</p>
+  </div>
+</section>
+
+<!-- ══ BOTTOM ══ -->
+<div class="bottom">
+  <div class="app">
+    <h2 id="t-app-h">Notre approche</h2>
+    <ul>
+      <li><div class="ap-ico"><i class="fa-solid fa-flask"></i></div><span id="t-a1">Expertise scientifique</span></li>
+      <li><div class="ap-ico"><i class="fa-solid fa-leaf"></i></div><span id="t-a2">Solutions durables</span></li>
+      <li><div class="ap-ico"><i class="fa-solid fa-layer-group"></i></div><span id="t-a3">Approche multidisciplinaire</span></li>
+      <li><div class="ap-ico"><i class="fa-solid fa-handshake"></i></div><span id="t-a4">Accompagnement sur mesure</span></li>
+      <li><div class="ap-ico"><i class="fa-solid fa-star"></i></div><span id="t-a5">Rigueur &amp; innovation</span></li>
+    </ul>
+  </div>
+  <div class="cc">
+    <img src="assets/logos.png" alt="Logo" class="cc-logo" onerror="this.style.display='none'"/>
+    <h3>K&amp;B EARTH WORKS SARL</h3>
+    <p class="cs">Geoscience · Water · Environment</p>
+    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-location-dot"></i></div><span>26 rue Nahas Nahaoui, Étage 2 Appt 3<br>Maarif – Casablanca, Maroc</span></div>
+    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-phone"></i></div><span>+212 662 136 067</span></div>
+    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-mobile-screen-button"></i></div><span>+212 762 985 389</span></div>
+    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-envelope"></i></div><span>k.b.earthworks2026@gmail.com</span></div>
+    <hr/>
+    <p class="ice"><i class="fa-solid fa-barcode"></i> ICE : 003795428000064</p>
+  </div>
+</div>
+
+<!-- ══ QR ══ -->
+<section class="qrs">
+  <h2 class="sec-h" id="t-qr-h">QR Code — Site Web</h2>
+  <p style="font-size:.84rem;color:#888;margin-bottom:28px" id="t-qr-desc">Scannez pour ouvrir directement le site K&amp;B Earth Works</p>
+  <div class="qrbox">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://kbearthworks.github.io&format=png&margin=10&color=2C4A52" alt="QR Code"/>
+    <p class="qr-link"><i class="fa-solid fa-link"></i> kbearthworks.github.io</p>
+  </div>
+  <div class="dlb">
+    <button class="db db1" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https://kbearthworks.github.io&format=png&margin=10&color=2C4A52','_blank')">
+      <i class="fa-solid fa-qrcode"></i><span id="t-dl1">Télécharger QR Code</span>
+    </button>
+  </div>
+</section>
+
+<footer>
+  <i class="fa-solid fa-copyright"></i>
+  2026 &nbsp;<span>K&amp;B Earth Works SARL</span>&nbsp; - Casablanca, Maroc - Tous droits réservés
+</footer>
+
+<script>
+var T={
+  fr:{
+    topbar:"Bureau d'études — Casablanca, Maroc",tagline:"Bureau d'études en géosciences, environnement et ingénierie",
+    btn1:"Découvrir nos services",btn2:"Nous contacter",aboutH:"À propos de K&B Earth Works",
+    about1:"<strong>K&B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.",
+    about2:"Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.",
+    about3:"Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.",
+    srvH:"Nos Services",s1:"Géosciences & Environnement",s2:"Ingénierie VRD",s3:"Études de Faisabilité",s4:"Exploration Minière",s5:"Ressources Hydrauliques",s6:"Coordination de Projets",
+    ul1:["Géologie environnementale","Hydrogéologie","Géophysique appliquée","Géochimie","Études d'impact environnemental (EIE)"],
+    ul2:["Tracé et conception de routes","Dimensionnement des chaussées","Stabilité des talus","Analyse géotechnique"],
+    ul3:["Analyse de viabilité technique","Études économiques","Identification et scénarios","Évaluation de risques"],
+    ul4:["Cartographie géologique","Levés géophysiques","Permis de recherche","Gestion de carrières"],
+    ul5:["Études hydrogéologiques","Gestion durable des ressources en eau","Modélisation hydrogéologique"],
+    ul6:["Pilotage de projets","Ordonnancement","Assistance technique & environnement"],
+    mineH:"Exploration géologique — Prestations détaillées",
+    mineUl:["<i class='fa-solid fa-file-lines'></i> Analyse documentaire et compilation des données géologiques existantes","<i class='fa-solid fa-map'></i> Cartographie géologique et structurale","<i class='fa-solid fa-wave-square'></i> Levés géophysiques et géochimiques","<i class='fa-solid fa-person-hiking'></i> Travaux de reconnaissance de terrain","<i class='fa-solid fa-magnifying-glass-chart'></i> Interprétation des données et identification des zones à potentiel minier","<i class='fa-solid fa-folder-open'></i> Constitution et suivi des dossiers de permis de recherche"],
+    projH:"Nos Projets",projEmpty:"Projets en cours de publication — revenez bientôt !",
+    appH:"Notre approche",a1:"Expertise scientifique",a2:"Solutions durables",a3:"Approche multidisciplinaire",a4:"Accompagnement sur mesure",a5:"Rigueur & innovation",
+    qrH:"QR Code — Site Web",qrDesc:"Scannez pour ouvrir directement le site K&B Earth Works",dl1:"Télécharger QR Code"
+  },
+  en:{
+    topbar:"Consulting Bureau — Casablanca, Morocco",tagline:"Engineering & Earth Sciences Consulting Bureau",
+    btn1:"Our Services",btn2:"Contact Us",aboutH:"About K&B Earth Works",
+    about1:"<strong>K&B Earth Works SARL</strong> is a consulting bureau specializing in earth sciences, environment and engineering, based in Casablanca.",
+    about2:"We support public and private stakeholders in the <strong>design</strong>, analysis and implementation of complex projects, combining <strong>scientific expertise, technical innovation</strong> and a multidisciplinary approach.",
+    about3:"Our mission: to provide <strong>sustainable and reliable solutions</strong> in natural resources, infrastructure and environment.",
+    srvH:"Our Services",s1:"Geosciences & Environment",s2:"Road & Network Engineering",s3:"Feasibility Studies",s4:"Mining Exploration",s5:"Water Resources",s6:"Project Management",
+    ul1:["Environmental geology","Hydrogeology","Applied geophysics","Geochemistry","Environmental Impact Assessment (EIA)"],
+    ul2:["Road design & layout","Pavement sizing","Slope stability","Geotechnical analysis"],
+    ul3:["Technical viability analysis","Economic studies","Scenarios identification","Risk assessment"],
+    ul4:["Geological mapping","Geophysical surveys","Research permits","Quarry management"],
+    ul5:["Hydrogeological studies","Sustainable water management","Hydrogeological modelling"],
+    ul6:["Project steering","Scheduling","Technical & environmental assistance"],
+    mineH:"Geological Exploration — Detailed Services",
+    mineUl:["<i class='fa-solid fa-file-lines'></i> Documentary analysis and compilation of existing geological data","<i class='fa-solid fa-map'></i> Geological and structural mapping","<i class='fa-solid fa-wave-square'></i> Geophysical and geochemical surveys","<i class='fa-solid fa-person-hiking'></i> Field reconnaissance work","<i class='fa-solid fa-magnifying-glass-chart'></i> Data interpretation and identification of mining potential zones","<i class='fa-solid fa-folder-open'></i> Preparation and monitoring of research permit files"],
+    projH:"Our Projects",projEmpty:"Projects coming soon — check back later!",
+    appH:"Our Approach",a1:"Scientific expertise",a2:"Sustainable solutions",a3:"Multidisciplinary approach",a4:"Tailored support",a5:"Rigor & innovation",
+    qrH:"QR Code — Website",qrDesc:"Scan to open the K&B Earth Works website directly",dl1:"Download QR Code"
+  },
+  ar:{
+    topbar:"مكتب دراسات — الدار البيضاء، المغرب",tagline:"مكتب دراسات في علوم الأرض والبيئة والهندسة",
+    btn1:"اكتشف خدماتنا",btn2:"اتصل بنا",aboutH:"عن شركة K&B Earth Works",
+    about1:"<strong>K&B Earth Works SARL</strong> مكتب دراسات متخصص في علوم الأرض والبيئة والهندسة، مقره الدار البيضاء.",
+    about2:"نرافق الفاعلين العموميين والخواص في <strong>تصميم</strong> وتحليل وتنفيذ المشاريع المعقدة بخبرة علمية وتقنية.",
+    about3:"مهمتنا: تقديم <strong>حلول مستدامة وموثوقة</strong> في مجالات الموارد الطبيعية والبنية التحتية والبيئة.",
+    srvH:"خدماتنا",s1:"علوم الأرض والبيئة",s2:"هندسة الطرق والشبكات",s3:"دراسات الجدوى",s4:"الاستكشاف المنجمي",s5:"الموارد المائية",s6:"إدارة المشاريع",
+    ul1:["الجيولوجيا البيئية","الهيدروجيولوجيا","الجيوفيزياء التطبيقية","الجيوكيمياء","دراسات التأثير البيئي (EIE)"],
+    ul2:["تصميم الطرق والمسارات","تصميم الأرصفة","استقرار المنحدرات","التحليل الجيوتقني"],
+    ul3:["تحليل الجدوى التقنية","الدراسات الاقتصادية","تحديد السيناريوهات","تقييم المخاطر"],
+    ul4:["الرسم الجيولوجي","المسوحات الجيوفيزيائية","رخص البحث","إدارة المحاجر"],
+    ul5:["الدراسات الهيدروجيولوجية","الإدارة المستدامة للمياه","النمذجة الهيدروجيولوجية"],
+    ul6:["قيادة المشاريع","الجدولة الزمنية","المساعدة التقنية والبيئية"],
+    mineH:"الاستكشاف الجيولوجي — الخدمات التفصيلية",
+    mineUl:["<i class='fa-solid fa-file-lines'></i> التحليل الوثائقي وتجميع البيانات الجيولوجية","<i class='fa-solid fa-map'></i> الرسم الجيولوجي والبنيوي","<i class='fa-solid fa-wave-square'></i> المسوحات الجيوفيزيائية والجيوكيميائية","<i class='fa-solid fa-person-hiking'></i> أعمال الاستطلاع الميداني","<i class='fa-solid fa-magnifying-glass-chart'></i> تفسير البيانات وتحديد مناطق الإمكانات المنجمية","<i class='fa-solid fa-folder-open'></i> إعداد ومتابعة ملفات رخص البحث"],
+    projH:"مشاريعنا",projEmpty:"المشاريع قيد النشر — تابعونا قريباً!",
+    appH:"نهجنا",a1:"الخبرة العلمية",a2:"حلول مستدامة",a3:"نهج متعدد التخصصات",a4:"مرافقة مخصصة",a5:"الصرامة والابتكار",
+    qrH:"رمز QR — الموقع",qrDesc:"امسح للوصول المباشر إلى موقع K&B Earth Works",dl1:"تحميل رمز QR"
+  }
+};
+
+function setLang(l,btn){
+  var t=T[l];
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  var ids=['t-topbar','t-tagline','t-btn1','t-btn2','t-about-h','t-about1','t-about2','t-about3','t-srv-h','t-s1','t-s2','t-s3','t-s4','t-s5','t-s6','t-mine-h','t-proj-h','t-proj-empty','t-app-h','t-a1','t-a2','t-a3','t-a4','t-a5','t-qr-h','t-qr-desc','t-dl1'];
+  var keys=['topbar','tagline','btn1','btn2','aboutH','about1','about2','about3','srvH','s1','s2','s3','s4','s5','s6','mineH','projH','projEmpty','appH','a1','a2','a3','a4','a5','qrH','qrDesc','dl1'];
+  ids.forEach(function(id,i){var el=document.getElementById(id);if(el)el.innerHTML=t[keys[i]];});
+  for(var n=1;n<=6;n++){
+    var ul=document.getElementById('t-ul'+n);
+    if(ul&&t['ul'+n])ul.innerHTML=t['ul'+n].map(function(x){return'<li>'+x+'</li>';}).join('');
+  }
+  var mu=document.getElementById('t-mine-ul');
+  if(mu&&t.mineUl)mu.innerHTML=t.mineUl.map(function(x){return'<li>'+x+'</li>';}).join('');
+}
+</script>
+</body>
+</html>
